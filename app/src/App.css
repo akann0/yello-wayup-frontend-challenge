@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: beige;
 }
 
 .App-logo {
@@ -35,4 +36,43 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.jobsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.job {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 30vw;
+  border: #282c34 solid;
+  margin: 10px;
+}
+
+.job .tag {
+  background-color: #282c34;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.job .Senior {
+  background-color: green;
+}
+
+.job .Engineering {
+  background-color: red;
+}
+
+.job .Junior {
+  background-color: blue;
+}
+
+.job .Remote {
+  background-color: yellow;
 }

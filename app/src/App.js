@@ -14,15 +14,22 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
       <body>
         <h1>Jobs</h1>
-        <ul>
+        <div class='jobsList'>
           {jobData.map(job => (
-            <li key={job.id}>{job.title}</li>
+            <div class="job" key={job.id}>
+              <h1 class="title">{job.title}</h1>
+              <p class="company">{job.company}</p>
+              <p class="location">{job.location}</p>
+              <p class="description">{job.description}</p>
+              {job.tags.map(tag => (
+                <span class={`tag ${tag}`} key={tag}>{tag}</span>
+              ))}
+              <button class="apply">Apply</button>
+              </div>
           ))}
-        </ul>
+        </div>
       </body>
     </div>
   );
