@@ -1,6 +1,6 @@
-.App {
+* {
   text-align: center;
-  background-color: beige;
+  background-color: darkkhaki;
 }
 
 .App-logo {
@@ -51,6 +51,11 @@
   width: 30vw;
   border: #282c34 solid;
   margin: 10px;
+  background-color: beige;
+}
+
+.job * {
+  background-color: beige;
 }
 
 .job .tag {
@@ -74,5 +79,26 @@
 }
 
 .job .Remote {
-  background-color: yellow;
+  background-color: purple;
+}
+
+.job {
+  display: block;
+}
+
+.job * {
+  margin: 5px;
+}
+
+.selected .description {
+  display: block;
+}
+
+.job button {
+  background-color: white;
+}
+
+.header .filter {
+  margin-left: 40px;
+  
 }
