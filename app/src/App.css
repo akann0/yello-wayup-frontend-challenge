@@ -38,6 +38,11 @@
   }
 }
 
+.header input {
+  justify-content: center;
+  background-color: beige;
+}
+
 .jobsList {
   display: flex;
   flex-wrap: wrap;
@@ -82,6 +87,11 @@
   background-color: purple;
 }
 
+.job .Sales {
+  background-color: yellow;
+  color: black;
+}
+
 .job {
   display: block;
 }
@@ -98,7 +108,3 @@
   background-color: white;
 }
 
-.header .filter {
-  margin-left: 40px;
-  
-}

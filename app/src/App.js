@@ -18,13 +18,15 @@ function App() {
     // const tags = getUniqueTags(jobData);
   }, []);
 
+
+
   return (
     <div className="App">
       <body>
         <div class="header">
-          <h1 class="filter">Available Jobs</h1>
-          <input class="filter" type="text" placeholder="Search jobs" />
-          <select class="filter" name="location" id="location">
+          <h1 class="">Available Jobs</h1>
+          <input class="filter search" type="text" placeholder="Search jobs" onChange={() => filterData()}/>
+          {/* <select class="filter" name="location" id="location">
             <option value="all">All Locations</option>
             {locations.map(location => (
               <option value={location}>{location}</option>
@@ -35,7 +37,7 @@ function App() {
             {tags.map(tag => (
               <option value={tag}>{tag}</option>
             ))}
-          </select>
+          </select> */}
           
           
         </div>
@@ -50,7 +52,7 @@ function App() {
                 <span class={`tag ${tag}`} key={tag}>{tag}</span>
               ))}
               <button class="apply">Apply</button>
-              </div>
+            </div>
           ))}
         </div>
       </body>
@@ -58,6 +60,11 @@ function App() {
   );
 }
 
+
+/**
+ * Calls the mock api and returns the data
+ * @returns {Promise} 
+ */
 function callApi() {
   return fetch('https://62bc8d086b1401736cfcd8fb.mockapi.io/jobs')
     .then(response => response.json())
@@ -66,6 +73,7 @@ function callApi() {
       return data;
     });
 }
+
 /**
  * Toggles the selected class on the job element
  * @param {Event} event 
@@ -86,6 +94,25 @@ function getUniqueLocationsandTags(jobData) {
   const locations = jobData.map(job => job.location);
   const tags = jobData.map(job => job.tags).flat();
   return [Array.from(new Set(locations)), Array.from(new Set(tags))];
+}
+
+/**
+ * Filters the job data based on the input of all three values in the header
+ * @returns {void}
+ */
+function filterData() {
+  const searchInput = document.querySelector('.search').value;
+  const jobs = document.querySelectorAll('.job');
+  jobs.forEach(job => {
+    const title = job.querySelector('.title').textContent;
+    const companyText = job.querySelector('.company').textContent;
+    const locationText = job.querySelector('.location').textContent;
+    if (companyText.toLowerCase().includes(searchInput.toLowerCase()) || title.toLowerCase().includes(searchInput.toLowerCase()) || locationText.toLowerCase().includes(searchInput.toLowerCase())){
+      job.style.display = 'block';
+    } else {
+      job.style.display = 'none';
+    }
+  });
 }
 
 export default App;
